@@ -1,19 +1,22 @@
-<h1 align="center">Ring Cloud Deployment Guides</h1>
+<div align="center">
 
-<p align="center">
+# Ring Cloud Deployment Guides
+
+<p>
   <strong>The definitive guide to deploying Ring applications.</strong>
   <br />
   From modern PaaS providers and cloud servers with Docker to traditional shared hosting, we provide clear, production-ready tutorials to get you live.
 </p>
 
-<p align="center">
-    <a href="https://github.com/ysdragon/deploy-ring/blob/main/LICENSE">
-        <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License: MIT" />
-    </a>
-    <a href="https://github.com/ysdragon/deploy-ring/pulls">
-        <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs Welcome" />
-    </a>
-</p>
+[license]: https://img.shields.io/github/license/ysdragon/deploy-ring?style=for-the-badge&logo=opensourcehardware&label=License&logoColor=C0CAF5&labelColor=414868&color=8c73cc
+
+[prs-welcome]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=for-the-badge
+
+[![][license]](https://github.com/ysdragon/deploy-ring/blob/main/LICENSE)
+[![][prs-welcome]](https://github.com/ysdragon/deploy-ring/pulls)
+
+
+</div>
 
 ---
 
