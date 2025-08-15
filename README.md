@@ -3,7 +3,7 @@
 <p align="center">
   <strong>The definitive guide to deploying Ring applications.</strong>
   <br />
-  From modern cloud servers with Docker to traditional shared hosting, we provide clear, production-ready tutorials to get you live.
+  From modern PaaS providers and cloud servers with Docker to traditional shared hosting, we provide clear, production-ready tutorials to get you live.
 </p>
 
 <p align="center">
@@ -33,18 +33,32 @@ Use this table to quickly decide which guide best fits your needs.
 
 | If your hosting environment is... | Then choose this tutorial... | Key Technologies You'll Use |
 | :--- | :--- | :--- |
-| A **Cloud VM** (AWS, GCP, DigitalOcean, etc.) with `root` or `sudo` access, where you can run persistent server processes. | 🐳 **Deploying with Docker & Reverse Proxy** | `Docker`, `HTTPLib`, `Nginx`, `Traefik`, `Caddy`, `Let's Encrypt` |
+| A **Managed Cloud Platform (PaaS)** where infrastructure, networking, and SSL are handled for you, and you want the simplest deployment. | 🚀 **Deploying to Modern Cloud Platforms** | `Docker`, `Fly.io`, `Railway.app` |
+| A **Cloud VM** (AWS, GCP, DigitalOcean, etc.) with `root` or `sudo` access, where you want full control over your server stack. | 🐳 **Deploying with Docker & Reverse Proxy** | `Docker`, `HTTPLib`, `Nginx`, `Traefik`, `Caddy`, `Let's Encrypt` |
 | **Shared Hosting** (cPanel, Plesk, etc.) with limited permissions (no background processes) and FTP/SFTP access. | 📜 **Deploying with CGI** | `Apache`, `LiteSpeed`, `CGI`, `Nginx`, `FastCGI` |
 
 ---
 
 ## 📚 Available Tutorials
 
-### 🐳 1. Modern Cloud Deployment with Docker & a Reverse Proxy
+### 🚀 1. Modern PaaS Deployment on Fly.io & Railway.app
+
+[**➡️ Read the Tutorial: Deploying to Modern Cloud Platforms**](tutorials/ring_cloud_platforms.md)
+
+This is the fastest and most straightforward path to a live, secure application. It's designed for developers who want to focus on code, not infrastructure. These platforms automatically build your Docker container and handle all the networking, SSL, and scaling for you.
+
+**What you will learn:**
+*   The core concepts of deploying to a Platform-as-a-Service (PaaS).
+*   Deploying a containerized Ring application from your command line in minutes.
+*   Using the **`flyctl`** CLI to launch an application on Fly.io's global network.
+*   Using the **`railway`** CLI to instantly deploy an application on Railway.app.
+*   Why this is the ideal approach for rapid prototyping and hassle-free deployments.
+
+### 🐳 2. Modern Cloud Deployment with Docker & a Reverse Proxy
 
 [**➡️ Read the Tutorial: Deploying with Docker**](tutorials/ring_cloud.md)
 
-This guide covers the modern, industry-standard method for deploying web applications on cloud servers. It demonstrates how to containerize your Ring `HTTPLib` application using **Docker** and manage it with a powerful reverse proxy for security, performance, and easy SSL management.
+This guide covers the modern, industry-standard method for deploying web applications on cloud servers where you have full control. It demonstrates how to containerize your Ring `HTTPLib` application using **Docker** and manage it with a powerful reverse proxy.
 
 **What you will learn:**
 *   Containerizing a Ring web application built with `HTTPLib`.
@@ -55,25 +69,25 @@ This guide covers the modern, industry-standard method for deploying web applica
     *   **Traefik:** For a modern, dynamic edge router that automatically discovers services.
     *   **Caddy:** For the ultimate simplicity with fully automated HTTPS out of the box.
 
-### 📜 2. Traditional Hosting Deployment with CGI
+### 📜 3. Traditional Hosting Deployment with CGI
 
 [**➡️ Read the Tutorial: Deploying with CGI**](tutorials/ring_cloud_cgi.md)
 
-This guide is perfect for developers on traditional hosting environments (like **cPanel** or **Plesk**) where running a persistent server process isn't an option. It covers the classic and highly compatible **CGI (Common Gateway Interface)** model, where your Ring script runs and exits on each request.
+This guide is perfect for developers on traditional hosting environments (like **cPanel** or **Plesk**) where running a persistent server process isn't an option. It covers the classic and highly compatible **CGI (Common Gateway Interface)** model.
 
 **What you will learn:**
 *   Creating a CGI-compatible Ring script (which does not use `HTTPLib`).
-*   Using a universal, secure, and robust CGI wrapper script to execute your `.ring` files.
+*   Using a universal, secure CGI wrapper script to execute your `.ring` files.
 *   **Path A:** Deploying on shared hosting with **Apache/LiteSpeed**.
-*   **Path B:** Deploying on a cloud VM with **Nginx** and `fcgiwrap` for higher performance.
-*   Platform-specific tips and confirmed setups for **cPanel, Plesk, DirectAdmin, and KeyHelp**.
+*   **Path B:** Deploying on a cloud VM with **Nginx** and `fcgiwrap`.
+*   Platform-specific tips for **cPanel, Plesk, DirectAdmin, and KeyHelp**.
 
 ## 💡 How to Use These Tutorials
 
 1.  **Check the Prerequisites:** Before you begin, ensure you have:
     *   A basic understanding of the [Ring programming language](https://ring-lang.github.io/).
     *   Familiarity with your computer's command line or terminal.
-    *   General web hosting knowledge (domains, servers, DNS).
+    *   For the PaaS guide: A free **Fly.io** or **Railway.app** account and their respective CLIs.
     *   For the Docker guide: **Docker** and **Docker Compose** installed.
     *   For the CGI guide: Access to a shared hosting account or a cloud VM.
 
