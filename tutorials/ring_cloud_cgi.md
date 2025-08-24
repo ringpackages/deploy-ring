@@ -88,15 +88,17 @@ This wrapper cleverly handles different hosting configurations, sets up necessar
 # this script attempts to deduce it from the current working directory (PWD).
 if [ -z "$HOME" ]; then
   # Guess home directory for various hosting panels.
-  # Plesk: /var/www/vhosts/domain.com/httpdocs/cgi-bin
+  # Plesk: /var/www/vhosts/domain.com/httpdocs/cgi-bin or /home/domain.com/httpdocs/cgi-bin
   # cPanel/DirectAdmin: /home/username/public_html/cgi-bin
   # KeyHelp: /home/users/username/www/cgi-bin
   if [[ "$PWD" == /var/www/vhosts/* ]]; then
     HOME_DIR_GUESS="${PWD%/httpdocs*}"
   elif [[ "$PWD" == /home/users/* ]]; then
     HOME_DIR_GUESS="${PWD%/www*}"
-  elif [[ "$PWD" == /home/* ]]; then
+  elif [[ "$PWD" == /home/*/public_html* ]]; then
     HOME_DIR_GUESS="${PWD%/public_html*}"
+  elif [[ "$PWD" == /home/*/httpdocs* ]]; then
+    HOME_DIR_GUESS="${PWD%/httpdocs*}"
   else
     # Fallback to the current directory if no pattern matches.
     HOME_DIR_GUESS="$PWD"
