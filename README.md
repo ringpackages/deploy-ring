@@ -83,7 +83,7 @@ This guide is perfect for developers on traditional hosting environments (like *
 *   Using a universal, secure CGI wrapper script to execute your `.ring` files.
 *   **Path A:** Deploying on shared hosting with **Apache/LiteSpeed**.
 *   **Path B:** Deploying on a cloud VM with **Nginx** and `fcgiwrap`.
-*   Platform-specific tips for **cPanel, Plesk, DirectAdmin, and KeyHelp**.
+*   Platform-specific tips for **cPanel, Plesk, DirectAdmin, KeyHelp and ispManager**.
 
 ## 💡 How to Use These Tutorials
 
