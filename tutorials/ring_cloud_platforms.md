@@ -158,30 +158,34 @@ Open your terminal and authenticate the Railway CLI.
 railway login
 ```
 
-**2. Initialize and Deploy**
+**2. Initialize a New Project**
 
-Navigate to your project directory in your terminal and run the `up` command.
+This command creates a new project in your Railway account.
 ```bash
-# In your project folder containing app.ring and Dockerfile
-railway up
-```
-This command will:
-*   Prompt you to create a new project on Railway. Confirm this.
-*   Detect the `Dockerfile` in your directory.
-*   Build the Docker image from your local files and upload it.
-*   Deploy the service.
-
-The first deployment will start, but the application won't work correctly until we set the required environment variable.
-
-**3. Configure the Environment Variable**
-
-Use the CLI to set the `RING_FILE` variable. This tells our Ring container which script to execute. Railway will automatically trigger a new deployment with this setting.
-
-```bash
-railway variables --set "RING_FILE=app.ring"
+railway init --name my_ring_project
 ```
 
-**4. Generate a Public Domain**
+**3. Link Your Local Directory**
+
+Next, associate your local project directory with the project you just created on Railway.
+```bash
+railway link --project my_ring_project
+```
+
+**4. Add Service and Configure Variables**
+
+This command creates a new service and sets its required environment variables.
+```bash
+railway add --service my_ring_project --variables "RING_FILE=app.ring"
+```
+
+**5. Deploy the Application**
+Now, deploy your application. The `up` command builds your `Dockerfile` and starts the service. The `-c` flag streams build logs only, then exits.
+```bash
+railway up -c
+```
+
+**6. Generate a Public Domain**
 
 By default, a new service on Railway is not exposed to the public internet. You can generate a secure, public domain for it using the `railway domain` command.
 
@@ -190,17 +194,15 @@ railway domain
 ```
 The command will return a public URL for your service, which will look something like `your-app-name-production.up.railway.app`.
 
-**5. Visit Your Application**
+**7. Visit Your Application**
 
 You can now visit the `https://...up.railway.app` URL that was generated in the previous step to see your live Ring application.
 
-At any time, you can also open your project dashboard in the browser to view logs, settings, and find this domain again in the "Settings" tab of your service.
-
+At any time, you can also open your project dashboard in the browser to view logs, settings, and find this domain again.
 ```bash
 # This command opens your Railway project dashboard in the browser
 railway open
 ```
-
 ## 5. Conclusion
 
 This tutorial demonstrated how modern PaaS providers can eliminate nearly all the overhead of infrastructure management.
